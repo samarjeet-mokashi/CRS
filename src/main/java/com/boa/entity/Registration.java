@@ -14,6 +14,7 @@ public class Registration {
 	private Long registrationId;
 	private Long studentId;
 	private Long courseId;
+	private String status;
 	
 	public Long getRegistrationId() {
 		return registrationId;
@@ -32,6 +33,12 @@ public class Registration {
 	}
 	public void setCourseId(Long courseId) {
 		this.courseId = courseId;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 import com.boa.entity.Admin;
 import com.boa.entity.Course;
 import com.boa.entity.Professor;
+import com.boa.entity.Registration;
 import com.boa.entity.Student;
 import com.boa.repository.AdminRepository;
 import com.boa.repository.CourseRepository;
 import com.boa.repository.ProfessorRepository;
+import com.boa.repository.RegistrationRepository;
 import com.boa.repository.StudentRepository;
 
 @Service
@@ -28,6 +30,9 @@ public class AdminService {
 
 	@Autowired
 	private CourseRepository courseRepository;
+	
+	@Autowired
+	private RegistrationRepository registrationRepository;
 
 	public List<Admin> getAllAdmins() {
 		return adminRepository.findAll();
@@ -135,6 +140,10 @@ public class AdminService {
 
 	public Professor generateReportById(Long id) {
 		return professorRepository.findById(id).orElse(null);
+	}
+	
+	public List<Registration> getUnapprovedStudents() {
+		return registrationRepository.findUnapprovedStudents();
 	}
 
 }

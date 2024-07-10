@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.boa.entity.Admin;
 import com.boa.entity.Course;
 import com.boa.entity.Professor;
+import com.boa.entity.Registration;
 import com.boa.entity.Student;
 import com.boa.service.AdminService;
 
@@ -141,6 +142,11 @@ public class AdminController {
 	@GetMapping("/generateReportById/{id}")
 	public Professor generateReportById(@PathVariable Long id) {
 		return adminService.generateReportById(id);
+	}
+	
+	@GetMapping("/getUnapprovedStudents")
+	public List<Registration> getUnapprovedStudents() {
+		return adminService.getUnapprovedStudents();
 	}
 
 }
